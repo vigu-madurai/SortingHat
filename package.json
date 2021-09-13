@@ -1,0 +1,25 @@
+{
+  "name": "sortinghat",
+  "version": "1.0.0",
+  "description": "vedantu frontend assignment",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vigu-madurai/SortingHat.git"
+  },
+  "keywords": [
+    "sortinghat"
+  ],
+  "author": "vigneshwaran kannan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vigu-madurai/SortingHat/issues"
+  },
+  "homepage": "https://github.com/vigu-madurai/SortingHat#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
