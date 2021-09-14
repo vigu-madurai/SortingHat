@@ -1,20 +1,18 @@
 class Student {
-    constructor(regNo, section, food, order) {
+    constructor(regNo, section, food) {
         this.regNo = regNo;
         this.section = section;
         this.food = food;
-        this.order = order;
         this.house = this.computeHouse(section, food);
     }
     computeHouse(section, food) {
         return section + food;
     }
-    display() {
+    add() {
         return {
             regNo: this.regNo,
             section: this.section,
             food: this.food,
-            order: this.order,
             house: this.house
         }
     }
@@ -22,7 +20,6 @@ class Student {
 
 class Houses {
     maxAllowedStudents = 3;
-    
     constructor(list) {
         this.sudentList = list;
         this.houseList = this.add(list)
@@ -54,12 +51,84 @@ class Houses {
 
     display() {
         console.log(this.houseList);
+        return this.houseList;
+        // this.render()
+    }
+
+    renderStudentList(house) {
+        let output = "";
+        this.houseList[house].forEach(el => {
+            (
+                output += `<div class="students-list-wrapper"> 
+                <div class="students-list">${el.regNo}</div>
+            </div>`
+            )
+        })
+        return output;
+    }
+    render() {
+        let output = "";
+        const houseNames = Object.keys(this.houseList);
+        houseNames.forEach((el, index) => {
+            const house = houseNames[index];
+            output +=
+                `
+                <div class="house-student-layer">
+                <div class="house-title">
+                    ${house}
+                </div>
+                ${this.renderStudentList(house)}
+                </div>
+                `
+        })
+        return output;
     }
 }
 
-const s1 = new Student('1234', 'A', 'Veg', 1);
-const s2 = new Student('1235', 'B', 'NonVeg', 2);
-console.log(s1.display(), s2.display());
-const h = new Houses([s1, s2, s1, s2, s1, s2, s1, s2]);
-// h.add()
-console.log(h.display())
+const addStudent = document.querySelector("#allocate-btn");
+const allocateHouseEl = document.querySelector(".allocate-layer-wrapper");
+
+let studentList = [];
+
+addStudent.addEventListener('click', allocateHouse);
+
+function allocateHouse() {
+
+    const registerNoEl = document.querySelector("#reg-no");
+    const registerNo = registerNoEl.value;
+
+    const section = document.querySelector("input[name='section']:checked").value;
+    const foodPref = document.querySelector("input[name='food']:checked").value;
+    if (checkSections(section) && checkSections(foodPref) && checkRegNo()) {
+        const student = new Student(registerNo, section, foodPref);
+        studentList.push(student.add());
+        const houses = new Houses(studentList);
+        allocateHouseEl.innerHTML = houses.render();
+    } 
+}
+
+function checkSections(val) {
+    return val ?? false;
+}
+
+function checkRegNo() {
+    const registerNoEl = document.querySelector("#reg-no");
+    const registerNo = registerNoEl.value;
+    const registerNoErr = document.querySelector(".reg-no-wrapper .error-text");
+    const isUniqueRegNo = isUniqueReg(registerNo);
+    
+     if(registerNo.length == 4 && isUniqueRegNo) {
+        registerNoEl.classList.remove('error');
+        registerNoErr.style.display = "none";
+        return true;
+    } else {
+        registerNoEl.classList.add('error');
+        registerNoErr.innerHTML = "Only 4 Characters allowed & shouldn't be duplicated!";
+        registerNoErr.style.display = "block"
+        return false;
+    }
+}
+
+function isUniqueReg(registerNo) {
+    return studentList.every(el => el.regNo != registerNo)
+}
