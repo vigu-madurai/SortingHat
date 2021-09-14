@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vedantu's Sorting Hat</title>
+    <link rel= "stylesheet" type="text/css" href="../styles/index.css"></link>
+</head>
+<body>
+    <div class="body-wrapper">
+        <header class="header">
+            <p>SortingHat : A school hostel assignment Program</p>
+            <a href="/" class="reset-btn btn">Reset Batch</a>
+        </header>
+        <div class="main-body-wrapper">
+            <div class="add-layer-wrapper">
+                <div class="reg-no-wrapper">
+                <input type=text id='reg-no' class="reg-no" placeholder="Registration Number" maxlength="4"></input>
+                <span class="error-text"></span>
+            </div>
+                <div id="section" class="class-wrapper radio">
+                    <input label="Section A" type="radio" id="a" name="section" value="A" checked>
+                    <input label="Section B" type="radio" id="b" value="B" name="section" >
+                </div>
+                <div id="food-preference" class="food-wrapper radio">
+                    <input label="Veg" type="radio" id="veg" name="food" value="Veg" checked>
+                    <input label="Non Veg" type="radio" id="nonVeg" value="NonVeg" name="food">
+                </div>
+            </div>
+            <div class="submit-layer-wrapper">
+                <div id="allocate-btn" class="submit-btn btn">Allocate House</div>
+            </div>
+            <div class="allocate-layer-wrapper">
+            </div>
+        </div>
+        <footer>
+            <b>What is it?</b>
+            <p>New students join a school and need to be assigned to one of 4 boarding houses. As students come in, they register their roll number, class & food preference. There are 2 classes - A and B, and two food preferences - V & NV. There are 4 boarding houses with equal but limited capacity. The hat follows a first in first out policy with the following rules - </p>
+                <ul>
+                    <li>Queue will be processed based on the time a student registered, first in first out</li>
+                    <li>Boarding houses for students who prefer V cannot board NV students </li>
+                    <li>Boarding houses for class A would be separate from boarding houses for class B </li>
+                    <li>Once all boarding houses are filled up to capacity, no more students can be allocated. </li>
+                    <li>Other rules </li>
+                        <ul>
+                            <li>Roll number is a 4 digit integer unique to each student </li>
+                            <li>Student can only be registered once, duplicate commands for same student may be ignored </li> 
+                        </ul>
+                </ul>
+        </footer>
+    </div>
+    
+    
+    <script src="../scripts/index.js"></script>
+</body>
+</html>

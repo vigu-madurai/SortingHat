@@ -1,0 +1,202 @@
+:root {
+  --primaryBgColor: #222;
+  --primaryFontColor: #fff;
+  --primaryBtnColor: #222;
+  --resetBtnBgColor: #b580ce;
+  --positiveCtaBgColor: #3fb069;
+  --positiveCtaFontColor: #222;
+  --primaryBtnBorderColor: transparent;
+  --borderPx: 1px;
+  --borderErrorPx: 3px;
+  --borderRadius: 3px;
+  --radioBgColor: #333;
+  --radioBtnColor: #454857;
+  --siblingMargin: 8px 6px;
+  --defaultPadding: 8px 16px;
+  --insidePadding: 4px 8px;
+  --primaryBox: 0 0px 2px #000;
+  --primaryBorderError: #ec4b0b;
+}
+
+* {
+  transition: all 0.5s ease-in-out;
+  box-sizing: border-box;
+  margin: auto;
+  padding: 4px;
+}
+
+body {
+  background-color: var(--primaryBgColor);
+  color: var(--primaryFontColor);
+  font: 100% system-ui;
+}
+
+.body-wrapper {
+  margin: auto;
+  width: 100%;
+  min-width: 320px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0;
+}
+
+header,
+footer {
+  position: relative;
+  box-shadow: var(--primaryBox);
+  background-color: var(--radioBgColor);
+  padding: 16px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header p {
+  font-weight: 600;
+  margin: 0;
+}
+
+header a {
+  font-weight: lighter;
+  margin: 0;
+}
+
+.btn {
+  position: relative;
+  width: auto;
+  height: auto;
+  padding: var(--defaultPadding);
+  text-decoration: none;
+  border: solid var(--borderPx) var(--primaryBtnBorderColor);
+  border-radius: var(--borderRadius);
+  cursor: pointer;
+  text-align: center;
+}
+
+.reset-btn {
+  background-color: var(--resetBtnBgColor);
+  color: var(--primaryBtnColor);
+}
+
+.main-body-wrapper {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.add-layer-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: center;
+  box-shadow: var(--primaryBox);
+}
+
+.radio,
+.reg-no {
+  background: var(--radioBgColor);
+  padding: var(--defaultPadding);
+  margin: var(--siblingMargin);
+  border-radius: var(--borderErrorPx);
+  position: relative;
+}
+
+.radio input {
+  width: auto;
+  height: 100%;
+  appearance: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: var(--borderRadius);
+  padding: var(--insidePadding);
+  background: var(--radioBtnColor);
+  color: var(--primaryFontColor);
+  font-size: 14px;
+  transition: all 100ms linear;
+}
+
+.radio input:checked {
+  background-image: linear-gradient(180deg, #3a9ba2, #74bbad);
+  color: var(--primaryBtnColor);
+}
+
+.radio input:before {
+  content: attr(label);
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+}
+
+.reg-no-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 170px;
+  margin: 0;
+}
+.reg-no {
+  text-align: center;
+  color: var(--primaryFontColor);
+  border: 0;
+}
+
+.error-text {
+  color: var(--primaryBorderError);
+  font-size: 12px;
+}
+
+.error {
+  border-bottom: var(--primaryBorderError) solid var(--borderErrorPx);
+}
+
+.add-btn,
+.submit-btn {
+  background-color: var(--positiveCtaBgColor);
+  color: var(--positiveCtaFontColor);
+}
+
+.disabled {
+  cursor: not-allowed;
+  opacity: 0.3;
+}
+
+.submit-layer-wrapper {
+  margin: var(--siblingMargin);
+}
+
+.allocate-layer-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: var(--siblingMargin);
+  align-items: flex-start;
+  font-weight: lighter;
+  border-top: solid 1px var(--radioBgColor);
+  border-radius: var(--borderRadius);
+}
+
+.house-student-layer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: var(--insidePadding);
+  margin: 4px 16px;
+}
+
+.house-title {
+  font-weight: 600;
+  border-bottom: solid 1px var(--radioBgColor);
+  padding-bottom: 10px;
+}

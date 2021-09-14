@@ -2,7 +2,7 @@
   "name": "sortinghat",
   "version": "1.0.0",
   "description": "vedantu frontend assignment",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "test"
   },
