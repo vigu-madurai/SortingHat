@@ -5,9 +5,13 @@ class Student {
         this.food = food;
         this.house = this.computeHouse(section, food);
     }
+
+    // assign house based upon the food & section preference
     computeHouse(section, food) {
         return section + food;
     }
+
+    // use this object to compute house classification
     add() {
         return {
             regNo: this.regNo,
@@ -24,6 +28,8 @@ class Houses {
         this.sudentList = list;
         this.houseList = this.add(list)
     }
+
+    // add the list of student records and append to house list obj
     add(list) {
 
         let houseList = {
@@ -49,40 +55,41 @@ class Houses {
         return arr.length < this.maxAllowedStudents ? true : false;
     }
 
+    // use this to check the object structure in console
     display() {
         console.log(this.houseList);
         return this.houseList;
-        // this.render()
     }
 
+    render() {
+        let output = "";
+        const houseNames = Object.keys(this.houseList);
+
+        houseNames.forEach((el, index) => {
+            const house = houseNames[index];
+            output +=
+                `<div class="house-student-layer">
+                    <div class="house-title">
+                        ${house}
+                    </div>
+                    ${this.renderStudentList(house)}
+                </div>`
+        })
+        return output;
+    }
     renderStudentList(house) {
         let output = "";
         this.houseList[house].forEach(el => {
             (
-                output += `<div class="students-list-wrapper"> 
-                <div class="students-list">${el.regNo}</div>
-            </div>`
+                output +=
+                    `<div class="students-list-wrapper">
+                        <div class="students-list">${el.regNo}</div>
+                    </div>`
             )
         })
         return output;
     }
-    render() {
-        let output = "";
-        const houseNames = Object.keys(this.houseList);
-        houseNames.forEach((el, index) => {
-            const house = houseNames[index];
-            output +=
-                `
-                <div class="house-student-layer">
-                <div class="house-title">
-                    ${house}
-                </div>
-                ${this.renderStudentList(house)}
-                </div>
-                `
-        })
-        return output;
-    }
+    
 }
 
 const addStudent = document.querySelector("#allocate-btn");
@@ -99,6 +106,7 @@ function allocateHouse() {
 
     const section = document.querySelector("input[name='section']:checked").value;
     const foodPref = document.querySelector("input[name='food']:checked").value;
+    // client vaildation of regno, food, section
     if (checkSections(section) && checkSections(foodPref) && checkRegNo()) {
         const student = new Student(registerNo, section, foodPref);
         studentList.push(student.add());
@@ -129,6 +137,7 @@ function checkRegNo() {
     }
 }
 
+// findout duplicates of student's register number
 function isUniqueReg(registerNo) {
     return studentList.every(el => el.regNo != registerNo)
 }
