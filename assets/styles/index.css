@@ -1,16 +1,143 @@
+:root {
+  --primaryBgColor: #222;
+  --primaryFontColor: #fff;
+  --primaryBtnColor: #222;
+  --resetBtnBgColor: #b580ce;
+  --positiveCtaBgColor: #3fb069;
+  --positiveCtaFontColor: #222;
+  --primaryBtnBorderColor: transparent;
+  --borderPx: 1px;
+  --borderErrorPx: 3px;
+  --borderRadius: 3px;
+  --radioBgColor: #333;
+  --radioBtnColor: #454857;
+  --siblingMargin: 8px 6px;
+  --defaultPadding: 8px 16px;
+  --insidePadding: 4px 8px;
+  --primaryBox: 0 0px 2px #000;
+}
+
 * {
   transition: all 0.5s ease-in-out;
   box-sizing: border-box;
   margin: auto;
-  padding: 8px;
+  padding: 4px;
 }
 
 body {
-  color: #222;
-  background: #fff;
+  background-color: var(--primaryBgColor);
+  color: var(--primaryFontColor);
   font: 100% system-ui;
 }
-a {
-  color: #0033cc;
+
+.body-wrapper {
+  margin: auto;
+  width: 100%;
+  min-width: 320px;
+  height: 100%;
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; */
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0;
+}
+
+header, footer {
+	position: relative;
+	box-shadow: var(--primaryBox);
+	background-color: var(--radioBgColor);
+	padding: 16px;
+}
+
+.btn {
+  position: relative;
+  width: auto;
+  height: auto;
+  padding: var(--defaultPadding);
+  text-decoration: none;
+  border: solid var(--borderPx) var(--primaryBtnBorderColor);
+  border-radius: var(--borderRadius);
+  cursor: pointer;
+}
+
+.reset-btn {
+  background-color: var(--resetBtnBgColor);
+  color: var(--primaryBtnColor);
+}
+
+.main-body-wrapper {
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.add-layer-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: var(--primaryBox);
+}
+
+.radio,
+.reg-no {
+  background: var(--radioBgColor);
+  padding: var(--defaultPadding);
+  margin: var(--siblingMargin);
+  border-radius: var(--borderErrorPx);
+  position: relative;
+}
+
+.radio input {
+  width: auto;
+  height: 100%;
+  appearance: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: var(--borderRadius);
+  padding: var(--insidePadding);
+  background: var(--radioBtnColor);
+  color: var(--primaryFontColor);
+  font-size: 14px;
+  transition: all 100ms linear;
+}
+
+.radio input:checked {
+  background-image: linear-gradient(180deg, #3a9ba2, #74bbad);
+  color: var(--primaryBtnColor);
+}
+
+.radio input:before {
+  content: attr(label);
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+}
+
+.reg-no {
+  width: 130px;
+  text-align: center;
+}
+
+.error {
+  border-bottom: #c28279 solid 3px;
+}
+
+.add-btn, .submit-btn  {
+  background-color: var(--positiveCtaBgColor);
+  color: var(--positiveCtaFontColor);
+}
+
+.disabled {
+    cursor: not-allowed;
+    opacity: 0.3;
 }
 

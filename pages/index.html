@@ -10,24 +10,25 @@
 <body>
     <div class="body-wrapper">
         <header class="header">
-            few lines of description
+            <b><p>SortingHat : A school hostel assignment Program</p></b>
         </header>
-        <div class="reset-btn">Reset Batch</div>
+        <a href="/" class="reset-btn btn">Reset Batch</a>
         <div class="main-body-wrapper">
             <div class="add-layer-wrapper">
                 <div class="reg-no" contenteditable="true">Reg No</div>
-                <div class="class-wrapper">
-                    <span>A section</span>
-                    <span>B section</span>
+                <div class="class-wrapper radio">
+                    <input label="Section 'A'" type="radio" id="a" name="section" value="A">
+                    <input label="Section 'B'" type="radio" id="b" value="B" name="section">
                 </div>
-                <div class="food-wrapper">
-                    <span>Veg</span>
-                    <span>Non Veg</span>
+                <div class="food-wrapper radio">
+                    <input label="Veg" type="radio" id="veg" name="food" value="Veg">
+                    <input label="Non Veg" type="radio" id="nonVeg" value="NonVeg" name="food">
+                    
                 </div>
-                <div class="add-btn">Add Student Details</div>
+                <!-- <div class="add-btn btn">Add Student Details</div> -->
             </div>
             <div class="submit-layer-wrapper">
-                <div class="submit-btn">Allocate House</div>
+                <div class="submit-btn btn">Allocate House</div>
             </div>
             <div class="view-layer">
                 <div class="house-wrapper">
@@ -38,8 +39,24 @@
                 </div>
             </div>
         </div>
+        <footer>
+            <b>What is it?</b>
+            <p>New students join a school and need to be assigned to one of 4 boarding houses. As students come in, they register their roll number, class & food preference. There are 2 classes - A and B, and two food preferences - V & NV. There are 4 boarding houses with equal but limited capacity. The hat follows a first in first out policy with the following rules - </p>
+                <ul>
+                    <li>Queue will be processed based on the time a student registered, first in first out</li>
+                    <li>Boarding houses for students who prefer V cannot board NV students </li>
+                    <li>Boarding houses for class A would be separate from boarding houses for class B </li>
+                    <li>Once all boarding houses are filled up to capacity, no more students can be allocated. </li>
+                    <li>Other rules </li>
+                        <ul>
+                            <li>Roll number is a 4 digit integer unique to each student </li>
+                            <li>Student can only be registered once, duplicate commands for same student may be ignored </li> 
+                        </ul>
+                </ul>
+        </footer>
     </div>
     
-    <script type="text/javascript" src="../scripts/index.js"></script>
+    
+    <script src="../scripts/index.js"></script>
 </body>
 </html>
