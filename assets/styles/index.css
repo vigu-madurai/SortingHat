@@ -75,6 +75,7 @@ header a {
   border: solid var(--borderPx) var(--primaryBtnBorderColor);
   border-radius: var(--borderRadius);
   cursor: pointer;
+  text-align: center;
 }
 
 .reset-btn {
