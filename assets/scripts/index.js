@@ -92,13 +92,12 @@ class Houses {
     
 }
 
-const addStudent = document.querySelector("#allocate-btn");
+const allocateBtn = document.querySelector("#allocate-btn");
 const allocateHouseEl = document.querySelector(".allocate-layer-wrapper");
 
 let studentList = [];
 
-addStudent.addEventListener('click', allocateHouse);
-
+allocateBtn.addEventListener('click', allocateHouse);
 function allocateHouse() {
 
     const registerNoEl = document.querySelector("#reg-no");
