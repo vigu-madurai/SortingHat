@@ -11,7 +11,7 @@ Kindly follow the below steps to run in your local machine
 $ git clone https://github.com/vigu-madurai/SortingHat.git
 $ cd SortingHat
 $ npm i
-$ node app.js
+$ npm run start
 
 ```
 
