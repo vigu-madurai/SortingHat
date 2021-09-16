@@ -15,16 +15,13 @@ function allocateHouse() {
     const section = document.querySelector("input[name='section']:checked").value;
     const foodPref = document.querySelector("input[name='food']:checked").value;
     // client vaildation of regno, food, section
-    if (checkSections(section) && checkSections(foodPref) && checkRegNo()) {
+
+    if (Student.checkSections(section) && Student.checkSections(foodPref) && checkRegNo()) {
         const student = new Student(registerNo, section, foodPref);
         studentList.push(student.add());
         const houses = new Houses(studentList);
         allocateHouseEl.innerHTML = houses.render();
     }
-}
-
-function checkSections(val) {
-    return val ?? false;
 }
 
 function checkRegNo() {
@@ -33,7 +30,7 @@ function checkRegNo() {
     const registerNoErr = document.querySelector(".reg-no-wrapper .error-text");
     const isUniqueRegNo = isUniqueReg(registerNo);
 
-    if (registerNo.length == 4 && isUniqueRegNo) {
+    if (Student.computeNameLength(registerNo) && isUniqueRegNo) {
         registerNoEl.classList.remove('error');
         registerNoErr.style.display = "none";
         return true;
