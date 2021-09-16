@@ -4,7 +4,7 @@ var path    = require("path");
 
 var index = "/pages/index.html";
 
-app.use(express.static('assets'))
+app.use(express.static('assets'));
 app.get('/',function(req,res){
   res.sendFile(path.join(__dirname+index));
 });
